@@ -4,6 +4,7 @@ from routes.person import person
 from routes.rol import rol
 from routes.userrol import userrol
 from routes.cirugia import cirugia_router
+from routes.horarios import horarios
 
 app=FastAPI(
     title="HOSPITAL S.A. de C.V.",
@@ -14,5 +15,6 @@ app.include_router(person)
 app.include_router(rol)
 app.include_router(userrol)
 app.include_router(cirugia_router)
+app.include_router(horarios)
 
 print ("Hola bienvenido a mi backend")
