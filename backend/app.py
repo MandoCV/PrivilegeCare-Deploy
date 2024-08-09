@@ -4,6 +4,7 @@ from routes.person import person
 from routes.rol import rol
 from routes.userrol import userrol
 from routes.tbb_aprobaciones import tbb_aprobaciones
+from routes.bitacora import bitacora
 
 app=FastAPI(
     title="HOSPITAL S.A. de C.V.",
@@ -14,5 +15,7 @@ app.include_router(person)
 app.include_router(rol)
 app.include_router(userrol)
 app.include_router(tbb_aprobaciones)
+app.include_router(bitacora)
+
 print ("Hola bienvenido a mi backend")
 
