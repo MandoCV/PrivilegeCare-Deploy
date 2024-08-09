@@ -55,7 +55,7 @@ def update_nacimiento(id: int, baby_update: schemas.Pediatria.nacimientos.BabyUp
 
 @baby.delete("/nacimiento/{id}", response_model=schemas.Pediatria.nacimientos.Baby, tags=["Nacimientos"])
 def delete_nacimiento(id: int, db: Session = Depends(get_db)):
-    db_nacimiento = crud.nacimientos.delete_nacimiento(db=db, id=id)
+    db_nacimiento = crud.Pediatria.nacimientos.delete_nacimiento(db=db, id=id)
     if db_nacimiento is None:
         raise HTTPException(status_code=404, detail="El nacimiento no existe, no se pudo eliminar")
     return db_nacimiento
