@@ -17,8 +17,6 @@ from routes.puestos_departamentos import puesto_departamento
 from routes.solicitudes import request
 from routes.tbb_aprobaciones import tbb_aprobaciones
 from routes.tbc_organos import tbc_organos
-from routes.users import user
-from routes.usuarios import usuarios
 from routes.Pediatria.nacimientos import baby
 from routes.Pediatria.viewCiudad import view1
 from routes.Pediatria.viewGenero import view2
@@ -46,8 +44,6 @@ app.include_router(puesto_departamento)
 app.include_router(request)
 app.include_router(tbb_aprobaciones)
 app.include_router(tbc_organos)
-app.include_router(user)
-app.include_router(usuarios)
 app.include_router(baby)
 app.include_router(view1)
 app.include_router(view2)
