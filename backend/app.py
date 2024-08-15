@@ -23,10 +23,11 @@ from routes.Pediatria.nacimientos import baby
 from routes.Pediatria.viewCiudad import view1
 from routes.Pediatria.viewGenero import view2
 
-app=FastAPI(
+app = FastAPI(
     title="HOSPITAL S.A. de C.V.",
-    description="API para el almacenamiento de informacipn de un hospital"
+    description="API para el almacenamiento de información de un hospital"
 )
+
 app.include_router(user)
 app.include_router(person)
 app.include_router(rol)
