@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes.Pediatria.nacimientos import baby
 from routes.Pediatria.viewCiudad import view1
 from routes.Pediatria.viewGenero import view2
+from routes.Pediatria.vacunas import vacuna
 
 app=FastAPI(
     title="HOSPITAL S.A. de C.V.",
@@ -48,6 +49,7 @@ app.include_router(userrol)
 app.include_router(baby, prefix="/pediatria")
 app.include_router(view1, prefix="/pediatria")
 app.include_router(view2, prefix="/pediatria")
+app.include_router(vacuna, prefix="/pediatria")
 # Para desplegar el proyecto en render 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
