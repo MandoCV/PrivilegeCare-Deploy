@@ -10,9 +10,9 @@ def get_resultadosEstudios(db: Session, skip: int = 0, limit: int = 10):
 
 def create_resultado_estudio(db: Session, resultado_estudio: schemas.resultadosEstudios.ResultadosEstudiosCreate):
     db_resultado_estudio = models.resultadosEstudios.ResultadosEstudios(
-        Paciente_ID=resultado_estudio.Paciente_ID,
-        Personal_Medico_ID=resultado_estudio.Personal_Medico_ID,
-        Estudio_ID=resultado_estudio.Estudio_ID,
+        #Paciente_ID=resultado_estudio.Paciente_ID,
+        #Personal_Medico_ID=resultado_estudio.Personal_Medico_ID,
+        #Estudio_ID=resultado_estudio.Estudio_ID,
         Folio=resultado_estudio.Folio,
         Resultados=resultado_estudio.Resultados,
         Observaciones=resultado_estudio.Observaciones,
