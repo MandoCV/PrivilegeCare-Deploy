@@ -19,6 +19,8 @@ class LoteCreate(LoteBase):
     pass
 
 class LoteUpdate(BaseModel):
+    Medicamento_ID: Optional[int] = None
+    Personal_Medico_ID: Optional[int] = None
     Clave: Optional[str] = None
     Estatus: Optional[EstatusLote] = None
     Costo_Total: Optional[float] = None
