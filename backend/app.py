@@ -12,8 +12,8 @@ from routes.consumibles import consumible
 from routes.departamentos import departamentos
 from routes.dispensaciones import dispensacion
 from routes.estudios import estudios
-#from routes.resultados_estudios import resultados_estudios
-from routes.resultadosEstudios import resultadosEstudios
+from routes.resultados_estudios import resultados_estudios
+#from routes.resultadosEstudios import resultadosEstudios
 from routes.lotes import lote
 from routes.medicamentos import medicamento
 from routes.personal_medico import personal_medico
@@ -44,8 +44,8 @@ app.include_router(consumible)
 app.include_router(departamentos)
 app.include_router(dispensacion)
 app.include_router(estudios)
-app.include_router(resultadosEstudios)
-#app.include_router(resultados_estudios)
+#app.include_router(resultadosEstudios)
+app.include_router(resultados_estudios)
 app.include_router(lote)
 app.include_router(medicamento)
 app.include_router(personal_medico)
