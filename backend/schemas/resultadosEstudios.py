@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class ResultadosEstudiosBase(BaseModel):
-    Paciente_ID: int
+    #Paciente_ID: int
     #Personal_Medico_ID: int
     #Estudio_ID: int
     Folio: str
