@@ -1,4 +1,3 @@
-from typing import List, Union
 from pydantic import BaseModel
 from datetime import datetime
 from enum import Enum
@@ -18,23 +17,45 @@ class AparatoSistemaEnum(str, Enum):
     Sensorial = 'Sensorial'
 
 class DisponibilidadEnum(str, Enum):
+    EnProceso = 'En Proceso'
     Disponible = 'Disponible'
     NoDisponible = 'No Disponible'
     Reservado = 'Reservado'
+    Entregado = 'Entregado'
 
 class TipoEnum(str, Enum):
     Vital = 'Vital'
     NoVital = 'No Vital'
 
+class GrupoSanguineoEnum(str, Enum):
+    APos = 'A+'
+    ANeg = 'A-'
+    BPos = 'B+'
+    BNeg = 'B-'
+    ABPos = 'AB+'
+    ABNeg = 'AB-'
+    OPos = 'O+'
+    ONeg = 'O-'
+
+class EstadoSaludEnum(str, Enum):
+    Excelente = 'Excelente'
+    Bueno = 'Bueno'
+    Regular = 'Regular'
+    Pobre = 'Pobre'
+    Critico = 'Crítico'
+
 class OrganoBase(BaseModel):
     Nombre: str
     Aparato_Sistema: AparatoSistemaEnum
-    Descripcion: str
+    Detalles_Adicionales: str
     Disponibilidad: DisponibilidadEnum
     Tipo: TipoEnum
+    Fecha_Extraccion: datetime | None = None
+    Edad_Donante: int | None = None
+    Grupo_Sanguineo: GrupoSanguineoEnum
+    Estado_Salud: EstadoSaludEnum
+    Enfermedades_Transmisibles: bool
     Estatus: bool
-    Fecha_Registro: datetime
-    Fecha_Actualizacion: datetime
 
 class OrganoCreate(OrganoBase):
     pass
@@ -44,5 +65,8 @@ class OrganoUpdate(OrganoBase):
 
 class Organo(OrganoBase):
     ID: int
+    Fecha_Registro: datetime
+    Fecha_Actualizacion: datetime
+
     class Config:
-        from_attributes = True
+        orm_mode = True
