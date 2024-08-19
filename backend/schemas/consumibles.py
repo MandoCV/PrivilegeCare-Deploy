@@ -24,11 +24,23 @@ class ConsumibleCreate(ConsumibleBase):
     pass
 
 class ConsumibleUpdate(BaseModel):
-    pass
+    Nombre: Optional[str] = None
+    Descripcion: Optional[str] = None
+    Cantidad: Optional[int] = None
+    Tipo: Optional[str] = None
+    Departamento_ID: Optional[int] = None
+    Estatus: Optional[EstatusEnum] = None
+    Fecha_Registro: Optional[datetime] = None
+    Fecha_Actualizacion: Optional[datetime] = None
+    Observaciones: Optional[str] = None
+    Espacio_Medico: Optional[str] = None
+
 
 class Consumible(ConsumibleBase):
     ID: int
 
     class Config:
         orm_mode = True
+
+
 
