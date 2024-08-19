@@ -10,8 +10,8 @@ class ResultadosEstudios(Base):
     __tablename__ = "tbd_resultados_estudios"
 
     ID = Column(Integer, primary_key=True, autoincrement=True)
-    Paciente_ID = Column(Integer, ForeignKey("tbb_pacientes.Persona_ID"), nullable=False)
-    Personal_Medico_ID = Column(Integer, ForeignKey("tbb_personal_medico.Persona_ID"), nullable=False)
+    # Paciente_ID = Column(Integer, ForeignKey("tbb_pacientes.Persona_ID"), nullable=False)
+    # Personal_Medico_ID = Column(Integer, ForeignKey("tbb_personal_medico.Persona_ID"), nullable=False)
     Estudio_ID = Column(Integer, ForeignKey("tbc_estudios.ID"), nullable=False)
     Folio = Column(String(50), nullable=False, unique=True)
     Resultados = Column(Text, nullable=False)
