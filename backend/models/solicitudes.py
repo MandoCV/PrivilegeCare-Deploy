@@ -22,12 +22,12 @@ class Solicitud(Base):
     __tablename__ = "tbd_solicitudes"
 
     ID = Column(Integer, primary_key=True, index=True)
-    Paciente_ID = Column(Integer)
-    Medico_ID = Column(Integer)
-    Servicio_ID = Column(Integer)
+    Paciente_ID = Column(Integer, ForeignKey("tbb_personas.ID"))
+    Medico_ID = Column(Integer, ForeignKey("tbb_personal_medico.Persona_ID"))
+    Servicio_ID = Column(Integer, ForeignKey("tbc_servicios_medicos.ID"))
     Prioridad = Column(Enum(MyPrioridad))
     Descripcion = Column(String(250))
     Estatus = Column(Enum(MyEstatus))
-    Estatus_Aprobacion = Column(Boolean, default=False)
+    Estatus_Aprobacion = Column(Boolean, nullable=True)
     Fecha_Registro = Column(DateTime)
     Fecha_Actualizacion = Column(DateTime)
