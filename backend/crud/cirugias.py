@@ -13,8 +13,8 @@ def get_cirugias(db: Session, skip: int = 0, limit: int = 10):
 
 def create_cirugia(db: Session, cirugia: schemas.cirugias.CirugiaCreate):
     db_cirugia = models.cirugias.Cirugia(
-        #Paciente_ID=None,  # Omite los campos que aún no están definidos
-        #Espacio_Medico_ID=None,
+        Paciente_ID=cirugia.Paciente_ID,
+        Espacio_Medico_ID=cirugia.Espacio_Medico_ID,
         Tipo=cirugia.Tipo,
         Nombre=cirugia.Nombre,
         Descripcion=cirugia.Descripcion,

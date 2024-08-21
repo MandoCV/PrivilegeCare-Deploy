@@ -16,8 +16,8 @@ class EstatusEnum(str, Enum):
     Cancelada = "Cancelada"
 
 class CirugiaBase(BaseModel):
-    #Paciente_ID: int
-    #Espacio_Medico_ID: int
+    Paciente_ID: int
+    Espacio_Medico_ID: int
     Tipo: str
     Nombre: str
     Descripcion: str
