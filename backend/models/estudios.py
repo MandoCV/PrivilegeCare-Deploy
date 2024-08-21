@@ -2,16 +2,16 @@
 from sqlalchemy import (Column,Integer,String,ForeignKey,Text,DateTime,DECIMAL)
 from sqlalchemy.orm import relationship
 from config.db import Base
-#import models.solicitudes, models.consumibles
+import models.solicitudes, models.consumibles
 
 class Estudios(Base):
     __tablename__ = "tbc_estudios"
 
-    ID = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     Tipo = Column(String(50), nullable=False)
     Nivel_Urgencia = Column(String(50), nullable=False)
-    #Solicitud_ID = Column(Integer, ForeignKey("tbd_solicitudes.ID"), nullable=False)
-    #Consumibles_ID = Column(Integer, ForeignKey("tbc_consumibles.id"), nullable=True)
+    Solicitud_ID = Column(Integer, nullable=False)
+    Consumibles_ID = Column(Integer, nullable=True)
     Estatus = Column(String(50), nullable=False)
     Total_Costo = Column(DECIMAL(10, 2), nullable=False)
     Dirigido_A = Column(String(100), nullable=True)
