@@ -8,7 +8,7 @@ class PersonBase(BaseModel):
     Primer_Apellido: str
     Segundo_Apellido: str
     CURP: str  
-    Correo_Electronico: EmailStr 
+    Correo_Electronico: str 
     Telefono: str  
     Fecha_Nacimiento: date
     Fotografia: str
