@@ -32,7 +32,7 @@ def read_aprobacion(id: int, db: Session = Depends(get_db)):
 def create_tbb_aprobacion(tbb_aprobacion: schemas.tbb_aprobaciones.TbbAprobacionesCreate, db: Session = Depends(get_db)):
     return crud.tbb_aprobaciones.create_aprobacion(db=db, aprobacion=tbb_aprobacion)
 
-@tbb_aprobaciones.put("/tbb_aprobaciones/{id}", response_model=schemas.tbb_aprobaciones.TbbAprobaciones, tags=["Tbb_Aprobaciones"]dependencies=[Depends(Portador())])
+@tbb_aprobaciones.put("/tbb_aprobaciones/{id}", response_model=schemas.tbb_aprobaciones.TbbAprobaciones, tags=["Tbb_Aprobaciones"], dependencies=[Depends(Portador())])
 def update_tbb_aprobacion(id: int, tbb_aprobacion: schemas.tbb_aprobaciones.TbbAprobacionesUpdate, db: Session = Depends(get_db)):
     db_tbb_aprobacion = crud.tbb_aprobaciones.update_aprobacion(db=db, id=id, aprobacion=tbb_aprobacion)
     if db_tbb_aprobacion is None:
