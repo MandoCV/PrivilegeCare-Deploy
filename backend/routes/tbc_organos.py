@@ -19,8 +19,8 @@ def get_db():
         db.close()
 
 @tbc_organos.get("/organos/", response_model=List[schemas.tbc_organos.Organo], tags=["Organos"], dependencies=[Depends(Portador())])
-def read_organos(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    db_organos = crud.tbc_organos.get_organos(db=db, skip=skip, limit=limit)
+def read_organos( db: Session = Depends(get_db)):
+    db_organos = crud.tbc_organos.get_organos(db=db)
     return db_organos
 
 @tbc_organos.get("/organo/{id}", response_model=schemas.tbc_organos.Organo, tags=["Organos"], dependencies=[Depends(Portador())])
@@ -30,7 +30,7 @@ def read_organo(id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Órgano no encontrado")
     return db_organo
 
-@tbc_organos.post("/organo/", response_model=schemas.tbc_organos.Organo, tags=["Organos"], dependencies=[Depends(Portador())])
+@tbc_organos.post("/organo/", response_model=schemas.tbc_organos.Organo, tags=["Organos"])
 def create_organo(organo: schemas.tbc_organos.OrganoCreate, db: Session = Depends(get_db)):
     db_organo = crud.tbc_organos.get_organo_by_nombre(db, nombre=organo.Nombre)
     if db_organo:
