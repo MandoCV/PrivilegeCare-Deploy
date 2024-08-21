@@ -27,6 +27,7 @@ from routes.tbc_organos import tbc_organos
 from routes.Pediatria.nacimientos import baby
 from routes.Pediatria.viewCiudad import view1
 from routes.Pediatria.viewGenero import view2
+from routes.Pediatria.vacunas import vacuna
 
 app = FastAPI(
     title="HOSPITAL S.A. de C.V.",
@@ -42,11 +43,14 @@ app.add_middleware(
     allow_headers=["*"],  # Permite todos los encabezados
 )
 
-
 app.include_router(user)
 app.include_router(person)
 app.include_router(rol)
 app.include_router(userrol)
+app.include_router(baby, prefix="/pediatria")
+app.include_router(view1, prefix="/pediatria")
+app.include_router(view2, prefix="/pediatria")
+app.include_router(vacuna, prefix="/pediatria")
 app.include_router(cirugia_router)
 app.include_router(horarios)
 app.include_router(espacio)
@@ -66,8 +70,6 @@ app.include_router(puesto_departamento)
 app.include_router(request)
 app.include_router(tbb_aprobaciones)
 app.include_router(tbc_organos)
-app.include_router(baby)
-app.include_router(view1)
-app.include_router(view2)
+
 
 print("Hola, bienvenido a mi backend hospital")
