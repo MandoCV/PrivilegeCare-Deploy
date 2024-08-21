@@ -19,8 +19,8 @@ class Cirugia(Base):
     __tablename__ = "tbb_cirugias"
 
     ID = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    #Paciente_ID = Column(Integer, ForeignKey("tbb_pacientes.ID"), nullable=False)
-    #Espacio_Medico_ID = Column(Integer, ForeignKey("tbb_espacios_medicos.ID"), nullable=False)
+    Paciente_ID = Column(Integer, nullable=False)
+    Espacio_Medico_ID = Column(Integer, nullable=False)
     Tipo = Column(String(50), nullable=False)
     Nombre = Column(String(100), nullable=False)
     Descripcion = Column(LONGTEXT, nullable=False)
