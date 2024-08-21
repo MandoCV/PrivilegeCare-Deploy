@@ -20,7 +20,7 @@ class ResultadosEstudiosUpdate(ResultadosEstudiosBase):
     pass
 
 class ResultadosEstudios(ResultadosEstudiosBase):
-    ID: int
+    id: int
 
     class Config:
         orm_mode = True
