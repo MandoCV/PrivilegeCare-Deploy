@@ -5,6 +5,11 @@ from routes.user import user
 from routes.person import person
 from routes.rol import rol
 from routes.userrol import userrol
+from routes.receta import receta
+from routes.citas import cita
+from routes.expediente import expediente
+
+
 from routes.cirugia import cirugia_router
 from routes.horarios import horarios
 from routes.espacios import espacio
@@ -27,6 +32,8 @@ from routes.tbc_organos import tbc_organos
 from routes.Pediatria.nacimientos import baby
 from routes.Pediatria.viewCiudad import view1
 from routes.Pediatria.viewGenero import view2
+from routes.Pediatria.vacunas import vacuna
+
 
 app = FastAPI(
     title="HOSPITAL S.A. de C.V.",
@@ -47,6 +54,10 @@ app.include_router(user)
 app.include_router(person)
 app.include_router(rol)
 app.include_router(userrol)
+app.include_router(receta)
+app.include_router(cita)
+app.include_router(expediente)
+print ("Hola bienvenido a mi backend")
 app.include_router(cirugia_router)
 app.include_router(horarios)
 app.include_router(espacio)
@@ -66,8 +77,9 @@ app.include_router(puesto_departamento)
 app.include_router(request)
 app.include_router(tbb_aprobaciones)
 app.include_router(tbc_organos)
-app.include_router(baby)
-app.include_router(view1)
-app.include_router(view2)
+app.include_router(baby, prefix="/pediatria")
+app.include_router(view1, prefix="/pediatria")
+app.include_router(view2, prefix="/pediatria")
+app.include_router(vacuna, prefix="/pediatria")
 
 print("Hola, bienvenido a mi backend hospital")

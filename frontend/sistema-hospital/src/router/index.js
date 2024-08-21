@@ -15,12 +15,17 @@ import TablaEstudiosView from '@/components/Radiologia/tablaEstudios.vue'
 import RegistroSolicitudes from '@/components/Comite-Transplantes/RegistroSolicitudes.vue'
 import TablaSolicitudes from '@/components/Comite-Transplantes/Tabla-Solicitudes.vue'
 import UpdateSolucitud from '@/components/Comite-Transplantes/Update-Solucitud.vue'
+// Seccion de Registros Medicos
+import citasLista from '../components/registrosM/citas.vue'
+import expedientes from '../components/registrosM/expedientesM.vue'
+import recetaMedica from '../components/registrosM/recetaMedica.vue'
 // Seccion de ProgramacionQuirurgica
 import Calendar from '@/components/ProgramacionQuirurgica/calendar.vue'
 import RegisterC from '@/components/ProgramacionQuirurgica/RegisterC.vue'
 import TablaC from '@/components/ProgramacionQuirurgica/tablaC.vue'
 import GraficasC from '@/components/ProgramacionQuirurgica/graficasC.vue'
 import CrearC from '@/components/ProgramacionQuirurgica/CrearC.vue'
+
 
 
 
@@ -93,6 +98,11 @@ const router = createRouter({
         name: 'piePagina',
         component: PiePaginaView
       },
+      // Seccion de Registros Medicos
+      {path:'/citas', name:'citasLista', component:citasLista},
+      {path:'/expediente', name:'expediente', component:expedientes},
+      {path:'/receta', name:'receta', component: recetaMedica }
+    ]
       // Seccion de ProgramacionQuirurgica
       {
         path: '/calendar',

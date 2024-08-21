@@ -87,6 +87,28 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                      </svg>
                </button>
+               <ul id="dropdown-example7" class="hidden py-2 space-y-2">
+
+                  <li>
+                     <router-link to="/citas">
+                        <a href="#"
+                           class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-gray-700">Citas</a>
+                     </router-link>
+                  </li>
+                  <li>
+                     <router-link to="/expediente">
+                        <a href="#"
+                           class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-gray-700">Expediente
+                           Medico</a>
+                     </router-link>
+                  </li>
+                  <li>
+                     <router-link to="/receta">
+                        <a href="#"
+                           class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-blue-100 dark:text-white dark:hover:bg-gray-700">Recetas
+                           Médicas</a>
+                     </router-link>
+                  </li>
                <ul id="dropdown-example_6" class="hidden py-2 space-y-2">
                      <li>
                         <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Citas</a>
