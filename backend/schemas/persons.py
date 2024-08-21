@@ -7,6 +7,9 @@ class PersonBase(BaseModel):
     Nombre: str
     Primer_Apellido: str
     Segundo_Apellido: str
+    CURP: str  
+    Correo_Electronico: EmailStr 
+    Telefono: str  
     Fecha_Nacimiento: date
     Fotografia: str
     Genero: str#List[Literal["Masculino", "Femenino", "Otro"]]
