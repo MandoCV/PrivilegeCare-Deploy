@@ -32,7 +32,7 @@ from routes.tbc_organos import tbc_organos
 from routes.Pediatria.nacimientos import baby
 from routes.Pediatria.viewCiudad import view1
 from routes.Pediatria.viewGenero import view2
-from routes.Pediatria.vacunas import vacuna
+from routes.Pediatria.vacunas import vacunas
 
 
 app = FastAPI(
@@ -80,6 +80,6 @@ app.include_router(tbc_organos)
 app.include_router(baby, prefix="/pediatria")
 app.include_router(view1, prefix="/pediatria")
 app.include_router(view2, prefix="/pediatria")
-app.include_router(vacuna, prefix="/pediatria")
+app.include_router(vacunas, prefix="/pediatria")
 
 print("Hola, bienvenido a mi backend hospital")
