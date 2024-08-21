@@ -9,7 +9,7 @@ import models.resultados_estudios
 class ResultadosEstudios(Base):
     __tablename__ = "tbd_resultados_estudios"
 
-    ID = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     Paciente_ID = Column(Integer, nullable=False)
     Personal_Medico_ID = Column(Integer, nullable=False)
     Estudio_ID = Column(Integer, nullable=False)
