@@ -2,7 +2,7 @@
 from sqlalchemy import (Column,Integer,String,ForeignKey,Text,DateTime,DECIMAL)
 from sqlalchemy.orm import relationship
 from config.db import Base
-import models.solicitudes, models.consumibles
+#import models.solicitudes, models.consumibles
 
 class Estudios(Base):
     __tablename__ = "tbc_estudios"
