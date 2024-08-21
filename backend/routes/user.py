@@ -29,7 +29,7 @@ def read_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
 
 @user.post("/user/{id}", response_model=schemas.users.User, tags=["Usuarios"], dependencies=[Depends(Portador())])
 def read_user(id: int, db: Session = Depends(get_db)):
-    db_user= crud.users.get_user(db=db, id=id)
+    db_user= crud.users.get_user_by_usuario(db=db, id=ID)
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return db_user

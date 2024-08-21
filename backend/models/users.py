@@ -26,4 +26,3 @@ class User(Base):
     Fecha_Actualizacion = Column(DateTime)
     # Clave foránea para la relación uno a uno con User
     
-
