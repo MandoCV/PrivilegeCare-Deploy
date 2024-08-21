@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 from routes.user import user
 from routes.person import person
 from routes.rol import rol
@@ -30,6 +32,16 @@ app = FastAPI(
     title="HOSPITAL S.A. de C.V.",
     description="API para el almacenamiento de información de un hospital"
 )
+
+# Configurar CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite todas las solicitudes de origen cruzado. Puedes especificar una lista de dominios permitidos.
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos los métodos HTTP (GET, POST, etc.)
+    allow_headers=["*"],  # Permite todos los encabezados
+)
+
 
 app.include_router(user)
 app.include_router(person)
