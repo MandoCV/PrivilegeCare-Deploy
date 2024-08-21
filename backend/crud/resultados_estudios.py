@@ -3,7 +3,7 @@ import models.resultados_estudios
 import schemas.resultados_estudios
 
 def get_resultado_estudio(db: Session, id: int):
-    return db.query(models.resultados_estudios.ResultadosEstudios).filter(models.resultados_estudios.ResultadosEstudios.ID == id).first()
+    return db.query(models.resultados_estudios.ResultadosEstudios).filter(models.resultados_estudios.ResultadosEstudios.id == id).first()
 
 def get_resultados_estudios(db: Session, skip: int = 0, limit: int = 10):
     return db.query(models.resultados_estudios.ResultadosEstudios).offset(skip).limit(limit).all()
@@ -26,7 +26,7 @@ def create_resultado_estudio(db: Session, resultado_estudio: schemas.resultados_
     return db_resultado_estudio
 
 def update_resultado_estudio(db: Session, id: int, resultado_estudio: schemas.resultados_estudios.ResultadosEstudiosUpdate):
-    db_resultado_estudio = db.query(models.resultados_estudios.ResultadosEstudios).filter(models.resultados_estudios.ResultadosEstudios.ID == id).first()
+    db_resultado_estudio = db.query(models.resultados_estudios.ResultadosEstudios).filter(models.resultados_estudios.ResultadosEstudios.id == id).first()
     if db_resultado_estudio:
         for var, value in vars(resultado_estudio).items():
             setattr(db_resultado_estudio, var, value) if value else None
@@ -35,7 +35,7 @@ def update_resultado_estudio(db: Session, id: int, resultado_estudio: schemas.re
     return db_resultado_estudio
 
 def delete_resultado_estudio(db: Session, id: int):
-    db_resultado_estudio = db.query(models.resultados_estudios.ResultadosEstudios).filter(models.resultados_estudios.ResultadosEstudios.ID == id).first()
+    db_resultado_estudio = db.query(models.resultados_estudios.ResultadosEstudios).filter(models.resultados_estudios.ResultadosEstudios.id == id).first()
     if db_resultado_estudio:
         db.delete(db_resultado_estudio)
         db.commit()
