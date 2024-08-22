@@ -13,18 +13,19 @@ class PuestoDepartamentoBase(BaseModel):
     Descripcion: Optional[str] = None
     Salario: Optional[float] = None
     Turno: Optional[TurnoEnum] = None
-    Creado: datetime
-    Modificado: Optional[datetime] = None
     DepartamentoID: int
 
 class PuestoDepartamentoCreate(PuestoDepartamentoBase):
-    pass
+    Creado: Optional[datetime] = None
+    Modificado: Optional[datetime] = None
 
 class PuestoDepartamentoUpdate(PuestoDepartamentoBase):
-    pass
+    Modificado: Optional[datetime] = None
 
 class PuestoDepartamento(PuestoDepartamentoBase):
     PuestoID: int
+    Creado: datetime
+    Modificado: Optional[datetime] = None
 
     class Config:
         orm_mode = True
