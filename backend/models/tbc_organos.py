@@ -20,4 +20,4 @@ class Organo(Base):
     # Campos movidos al final
     Fecha_Registro = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     Fecha_Actualizacion = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
-    Estatus = Column(Boolean, nullable=True)
+    Estatus = Column(Boolean, default=True)

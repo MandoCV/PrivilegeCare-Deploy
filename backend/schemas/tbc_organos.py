@@ -69,4 +69,4 @@ class Organo(OrganoBase):
     Fecha_Actualizacion: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True

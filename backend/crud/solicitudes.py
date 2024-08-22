@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 def get_request(db: Session, id: int):
     return db.query(models.solicitudes.Solicitud).filter(models.solicitudes.Solicitud.ID == id).first()
 
-def get_requests(db: Session, skip: int = 0, limit: int = 10):
+def get_requests(db: Session, skip: int = 0, limit: int = 50):
     return db.query(models.solicitudes.Solicitud).offset(skip).limit(limit).all()
 
 def create_request(db: Session, req: schemas.solicitudes.SolicitudCreate):
