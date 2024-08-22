@@ -14,14 +14,13 @@ class PuestoDepartamento(Base):
     __tablename__ = "tbd_puestos_departamentos"
 
     PuestoID = Column(Integer, primary_key=True, index=True)
-    Nombre = Column(String, index=True)
-    Descripcion = Column(String, nullable=True)
+    Nombre = Column(String(255), index=True)  # Longitud especificada
+    Descripcion = Column(String(255), nullable=True)  # Longitud especificada
     Salario = Column(Float, nullable=True)
     Turno = Column(Enum(TurnoEnum), nullable=True)
     Creado = Column(DateTime, default=datetime.utcnow)
     Modificado = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     DepartamentoID = Column(Integer, index=True)
-
 
     def __repr__(self):
         return f"<PuestoDepartamento(PuestoID={self.PuestoID}, Nombre='{self.Nombre}')>"

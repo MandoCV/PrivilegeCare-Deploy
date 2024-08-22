@@ -6,8 +6,12 @@ import schemas.puestos_departamentos as schemas
 import config.db
 from jwt_config import solicita_token
 from portadortoken import Portador
+from models.puestos_departamentos import Base  # Asegúrate de importar Base desde el módulo correcto
 
 puesto_departamento = APIRouter()
+
+# Crea las tablas si no existen
+Base.metadata.create_all(bind=config.db.engine)
 
 def get_db():
     db = config.db.SessionLocal()
