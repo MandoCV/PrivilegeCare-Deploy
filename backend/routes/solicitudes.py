@@ -19,7 +19,7 @@ def get_db():
         db.close()
 
 @request.get("/solicitudes/", response_model=List[schemas.solicitudes.Solicitud], tags=["Solicitudes"], dependencies=[Depends(Portador())])
-def read_requests(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+def read_requests(skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
     db_request = crud.solicitudes.get_requests(db=db, skip=skip, limit=limit)
     return db_request
 
