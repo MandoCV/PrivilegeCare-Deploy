@@ -17,7 +17,7 @@ def get_db():
         
 @expediente.get("/expediente/", response_model=List[schemas.expediente.Expediente], tags=["Expediente"] ,dependencies=[Depends(Portador())])
 def read_expediente(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    db_exp= crud.expediente.get_expediente(db=db, skip=skip, limit=limit)
+    db_exp= crud.expediente.get_expedientes(db=db, skip=skip, limit=limit)
     return db_exp
 
 @expediente.post("/expediente/{ID}", response_model=schemas.expediente.Expediente, tags=["Expediente"] ,dependencies=[Depends(Portador())])
