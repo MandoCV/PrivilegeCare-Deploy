@@ -48,16 +48,6 @@ def update_nacimiento(id: int, baby_update: schemas.Pediatria.nacimientos.BabyUp
         raise HTTPException(status_code=404, detail="El nacimiento no existe")
     return db_nacimiento
 
-
-# @baby.put("/nacimiento/{id}", response_model=schemas.nacimientos.Baby, tags=["Nacimientos"])
-# def update_nacimiento(id: int, baby: schemas.nacimientos.BabyUpdate, db: Session = Depends(get_db)):
-#     db_nacimiento = crud.nacimientos.update_nacimiento(db=db, id=id, baby_update=baby)
-#     if db_nacimiento is None:
-#         raise HTTPException(status_code=404, detail="El nacimiento no existe")
-#     return db_nacimiento
-
-
-
 @baby.delete("/nacimiento/{id}", response_model=schemas.Pediatria.nacimientos.Baby, tags=["Nacimientos"],dependencies=[Depends(Portador())])
 def delete_nacimiento(id: int, db: Session = Depends(get_db)):
     db_nacimiento = crud.Pediatria.nacimientos.delete_nacimiento(db=db, id=id)
