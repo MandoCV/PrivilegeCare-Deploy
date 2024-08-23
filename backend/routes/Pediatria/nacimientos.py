@@ -1,4 +1,5 @@
-from fastapi import APIRouter, HTTPException, Depends, Query
+from fastapi import APIRouter, HTTPException, Depends, Query, Body
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 from cryptography.fernet import Fernet
 import crud.Pediatria.nacimientos, config.db, schemas.Pediatria.nacimientos, models.Pediatria.nacimientos
@@ -19,6 +20,47 @@ def get_db():
         yield db
     finally:
         db.close()
+        
+        
+
+@baby.post("/poblarNacimientos/", tags=['Nacimientos'],dependencies=[Depends(Portador())])
+def execute_sql(sql_query: str = Body(...), db: Session = Depends(get_db)):
+    try:
+        # Ejecutar la sentencia SQL
+        result = db.execute(text(sql_query))
+        db.commit()  # Confirma los cambios si es una operación que modifica la base de datos
+
+        # Para seleccionar datos
+        if result.returns_rows:
+            rows = result.fetchall()
+            return {"result": [dict(row) for row in rows]}
+        else:
+            return {"message": "SQL executed successfully"}
+
+    except Exception as e:
+        db.rollback()  # En caso de error, se revierte la transacción
+        raise HTTPException(status_code=400, detail=str(e))
+    
+    
+@baby.post("/eliminarNacimientos/", tags=['Nacimientos'],dependencies=[Depends(Portador())])
+def execute_sql(sql_query: str = Body(...), db: Session = Depends(get_db)):
+    try:
+        # Ejecutar la sentencia SQL
+        result = db.execute(text(sql_query))
+        db.commit()  # Confirma los cambios si es una operación que modifica la base de datos
+
+        # Para seleccionar datos
+        if result.returns_rows:
+            rows = result.fetchall()
+            return {"result": [dict(row) for row in rows]}
+        else:
+            return {"message": "SQL executed successfully"}
+
+    except Exception as e:
+        db.rollback()  # En caso de error, se revierte la transacción
+        raise HTTPException(status_code=400, detail=str(e))
+    
+    
 
 @baby.get("/nacimientos/", response_model=List[schemas.Pediatria.nacimientos.Baby], tags=['Nacimientos'],dependencies=[Depends(Portador())])
 def read_nacimientos(skip: int = Query(0, alias="page", ge=0), limit: int = Query(10, le=100), db: Session = Depends(get_db)):
