@@ -33,6 +33,8 @@ from routes.Pediatria.nacimientos import baby
 from routes.Pediatria.viewCiudad import view1
 from routes.Pediatria.viewGenero import view2
 from routes.Pediatria.vacunas import vacuna
+from routes.servicios_medicos import serviceM
+
 
 
 app = FastAPI(
@@ -52,6 +54,7 @@ app.add_middleware(
 
 app.include_router(user)
 app.include_router(person)
+app.include_router(serviceM)
 app.include_router(rol)
 app.include_router(userrol)
 app.include_router(receta)
