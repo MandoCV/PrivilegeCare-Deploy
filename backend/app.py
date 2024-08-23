@@ -13,3 +13,6 @@ app.include_router(person)
 app.include_router(rol)
 app.include_router(userrol)
 print ("Hola bienvenido a mi backend")
+
+# Armando podrias colocar esto en el app.py, le quitas el formato de comentario
+# app.include_router(serviceM)
