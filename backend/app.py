@@ -3,6 +3,8 @@ from routes.user import user
 from routes.person import person
 from routes.rol import rol
 from routes.userrol import userrol
+# Tambein agrega la importacion porfa
+from routes.servicios_medicos import serviceM
 
 app=FastAPI(
     title="HOSPITAL S.A. de C.V.",
