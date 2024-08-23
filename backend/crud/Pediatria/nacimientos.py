@@ -40,4 +40,5 @@ def delete_nacimiento(db: Session, id: int):
     if db_nacimiento:
         db.delete(db_nacimiento)
         db.commit()
-    return db_nacimiento
+        return db_nacimiento
+    return None
