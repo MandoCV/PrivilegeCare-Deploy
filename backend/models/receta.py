@@ -15,7 +15,7 @@ class Receta(Base):
     Edad = Column(String(20))
     Presion_arterial = Column(String(20))
     Diagnostico = Column(String(255))
-    Prescripcion_Medica = Column(String(20))
+    Prescripcion_Medica = Column(String(200))
     Fecha_Registro = Column(DateTime)
     Fecha_Actualizacion = Column(DateTime)
 

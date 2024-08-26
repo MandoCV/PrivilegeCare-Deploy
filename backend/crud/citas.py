@@ -1,6 +1,7 @@
 import models.citas
 import schemas.citas
 from sqlalchemy.orm import Session
+import models, schemas
 
 def get_cita(db:Session, ID:int):
     return db.query(models.citas.Cita).filter(models.citas.Cita.ID == ID).first()
@@ -9,7 +10,7 @@ def get_citas(db: Session, skip:int=0,limit:int=10):
     return db.query(models.citas.Cita).offset(skip).limit(limit).all()
 
 def create_cita(db: Session, cita:schemas.citas.CitasCreate):
-    db_cita = models.citas.Cita(Hora_Cita=cita.Hora_Cita,Telefono=cita.Telefono,Correo_Electronico=cita.Correo_Electronico,Motivo_Cita=cita.Motivo_Cita,Estatus=cita.Estatus, Fecha_Registro=cita.Fecha_Registro,Fecha_Actualizacion=cita.Fecha_Actualizacion )
+    db_cita = models.citas.Cita(Persona_ID = cita.Persona_ID,Hora_Cita=cita.Hora_Cita,Telefono=cita.Telefono,Correo_Electronico=cita.Correo_Electronico,Motivo_Cita=cita.Motivo_Cita,Estatus=cita.Estatus )
     db.add(db_cita)
     db.commit()
     db.refresh(db_cita)
