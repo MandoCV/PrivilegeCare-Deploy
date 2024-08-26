@@ -8,11 +8,11 @@ def get_receta(db:Session, ID:int):
 def get_receta_by_Nombre(db: Session, Nombre: str):
     return db.query(models.receta.Receta).filter(models.receta.Receta == Nombre).first()
 
-def get_receta(db: Session, skip:int=0,limit:int=10):
+def get_recetas(db: Session, skip:int=0,limit:int=10):
     return db.query(models.receta.Receta).offset(skip).limit(limit).all()
 
 def create_receta(db: Session, receta:schemas.receta.RecetaCreate):
-    db_receta = models.receta.Receta(Nombre=receta.Nombre,Fecha_Nacimiento=receta.Fecha_Nacimiento,Peso=receta.Talla,Talla=receta.Talla,Edad=receta.Edad,Presion_arterial=receta.Presion_arterial,Diagnostico=receta.Diagnostico,Prescripcion_Medica=receta.Prescripcion_Medica, Fecha_Registro=receta.Fecha_Registro,Fecha_Actualizacion=receta.Fecha_Actualizacion )
+    db_receta = models.receta.Receta(Nombre=receta.Nombre,Fecha_Nacimiento=receta.Fecha_Nacimiento,Peso=receta.Peso,Talla=receta.Talla,Edad=receta.Edad,Presion_arterial=receta.Presion_arterial,Diagnostico=receta.Diagnostico,Prescripcion_Medica=receta.Prescripcion_Medica )
     db.add(db_receta)
     db.commit()
     db.refresh(db_receta)

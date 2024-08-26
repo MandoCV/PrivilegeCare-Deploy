@@ -1,19 +1,17 @@
 from typing import List,Union
 from pydantic import BaseModel
 from datetime import datetime
-
+from models.expediente import MyEstatusExpediente
 
 class ExpedienteBase(BaseModel):
     
-    ID:int
-    Fecha_Consulta:datetime
+    Persona_ID: int
     Hora_Consulta: datetime
     Diagnostico: str
     Tratamiento_Relacionado: str
     Observaciones: str
-    Estatus:bool
-    Fecha_Registro:datetime
-    Fecha_Actualizacion:datetime
+    Estatus:MyEstatusExpediente
+
 
 
     
@@ -24,6 +22,6 @@ class ExpedienteUpdate(ExpedienteBase):
     pass
 class Expediente(ExpedienteBase):
     ID: int
-
+    Persona_ID: int
     class Config:
         orm_mode = True
