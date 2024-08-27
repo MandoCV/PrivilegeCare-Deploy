@@ -19,7 +19,8 @@ class EspacioUpdate(EspacioBase):
 
 class Espacio(EspacioBase):
     ID: int
-    Fecha_Registro: datetime.datetime
-    Fecha_Actualizacion: datetime.datetime
+    Fecha_Registro: Optional[datetime.datetime] = None
+    Fecha_Actualizacion: Optional[datetime.datetime] = None
+
     class Config:
-        orm_mode = True  
+        orm_mode = True
