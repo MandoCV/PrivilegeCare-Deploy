@@ -29,10 +29,10 @@ from routes.puestos_departamentos import puesto_departamento
 from routes.solicitudes import request
 from routes.tbb_aprobaciones import tbb_aprobaciones
 from routes.tbc_organos import tbc_organos
-from routes.Pediatria.nacimientos import baby
-from routes.Pediatria.viewCiudad import view1
-from routes.Pediatria.viewGenero import view2
-from routes.Pediatria.vacunas import vacuna
+# from routes.Pediatria.nacimientos import baby
+# from routes.Pediatria.viewCiudad import view1
+# from routes.Pediatria.viewGenero import view2
+#from routes.Pediatria.vacunas import vacuna
 from routes.servicios_medicos import serviceM
 
 
@@ -80,9 +80,9 @@ app.include_router(puesto_departamento)
 app.include_router(request)
 app.include_router(tbb_aprobaciones)
 app.include_router(tbc_organos)
-app.include_router(baby, prefix="/pediatria")
-app.include_router(view1, prefix="/pediatria")
-app.include_router(view2, prefix="/pediatria")
-app.include_router(vacuna, prefix="/pediatria")
+#app.include_router(baby, prefix="/pediatria")
+#app.include_router(view1, prefix="/pediatria")
+#app.include_router(view2, prefix="/pediatria")
+#app.include_router(vacuna, prefix="/pediatria")
 
 print("Hola, bienvenido a mi backend hospital")
