@@ -16,7 +16,13 @@ class PersonBase(BaseModel):
     Fecha_Actualizacion: datetime
 
 class PersonCreate(PersonBase):
-    pass
+    Nombre: str
+    Primer_Apellido: str
+    Segundo_Apellido: str
+    Fecha_Nacimiento: date
+    Genero: str
+    Tipo_Sangre: str
+    
 
 class PersonUpdate(PersonBase):
     pass

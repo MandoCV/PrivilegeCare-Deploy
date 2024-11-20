@@ -13,7 +13,12 @@ class UserBase(BaseModel):
     Fecha_Actualizacion: datetime
 
 class UserCreate(UserBase):
-    pass
+    Persona_ID: int
+    Nombre_Usuario: str
+    Correo_Electronico: str
+    Contrasena: str
+    Numero_Telefonico_Movil: str
+    
 
 class UserUpdate(UserBase):
     pass
