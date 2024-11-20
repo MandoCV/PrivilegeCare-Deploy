@@ -8,9 +8,6 @@ class UserBase(BaseModel):
     Correo_Electronico: str
     Contrasena: str
     Numero_Telefonico_Movil: str
-    Estatus: str
-    Fecha_Registro: datetime
-    Fecha_Actualizacion: datetime
 
 class UserCreate(UserBase):
     Persona_ID: int
