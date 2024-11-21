@@ -21,9 +21,9 @@ class User(Base):
     Correo_Electronico = Column(String(100))
     Contrasena = Column(String(40))
     Numero_Telefonico_Movil = Column(String(20))
-    Estatus = Column(Enum(MyEstatus))
-    Fecha_Registro = Column(DateTime)
-    Fecha_Actualizacion = Column(DateTime)
+    Estatus = Column(Enum(MyEstatus), nullable=True)
+    Fecha_Registro = Column(DateTime,nullable=True)
+    Fecha_Actualizacion = Column(DateTime,nullable=True)
     # Clave foránea para la relación uno a uno con User
     
 

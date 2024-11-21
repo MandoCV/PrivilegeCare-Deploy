@@ -8,6 +8,9 @@ class UserBase(BaseModel):
     Correo_Electronico: str
     Contrasena: str
     Numero_Telefonico_Movil: str
+    Estatus: Optional[bool]
+    Fecha_Registro: Optional[datetime]
+    Fecha_Actualizacion: Optional[datetime]
 
 class UserCreate(UserBase):
     Persona_ID: int
@@ -15,7 +18,9 @@ class UserCreate(UserBase):
     Correo_Electronico: str
     Contrasena: str
     Numero_Telefonico_Movil: str
-    
+    Estatus: Optional[bool] = None
+    Fecha_Registro: Optional[datetime] = None
+    Fecha_Actualizacion: Optional[datetime] = None
 
 class UserUpdate(UserBase):
     pass
