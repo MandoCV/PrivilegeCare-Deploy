@@ -47,6 +47,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Permite todas las solicitudes de origen cruzado. Puedes especificar una lista de dominios permitidos.
     allow_credentials=True,
+     allow_origins=["http://localhost:5173"], 
     allow_methods=["*"],  # Permite todos los métodos HTTP (GET, POST, etc.)
     allow_headers=["*"],  # Permite todos los encabezados
 )
